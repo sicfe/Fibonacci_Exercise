@@ -12,6 +12,7 @@ namespace FibonacciExcercise.UnitTests
     public class FiboTest
     {
         IFibonacci fib;
+
         [TestInitialize]
         public void Inicializacion()
         {
