@@ -1,0 +1,52 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using FibonacciWebApi.Services;
+using FibonacciWebApi;
+
+
+namespace FibonacciExcercise.UnitTests
+{
+    [TestClass]
+    public class FiboTest
+    {
+        IFibonacci fib;
+        [TestInitialize]
+        public void Inicializacion()
+        {
+            fib = new Fibonacci();
+        }
+                          
+        [TestMethod]
+        public void NegativoTest()
+        {
+            try {
+                int res = fib.CalcularFibonacci(-1);
+            }
+            catch(Exception e)
+            {
+                Assert.AreEqual(e.Message, Constantes.obtenerError(Constantes.ERROR_NEGATIVO));
+            }
+
+        }
+
+        [TestMethod]
+        public void PasosBaseTest()
+        {
+            int pasoBase_1 = fib.CalcularFibonacci(0);
+            Assert.AreEqual(pasoBase_1, 1);
+            int paseBase_2 = fib.CalcularFibonacci(1);
+            Assert.AreEqual(paseBase_2, 1);               
+        }
+
+        [TestMethod]
+        public void CalcularFibonacciTest()
+        {
+            // testeo un nro valido al azar
+            int res_actual = fib.CalcularFibonacci(5);
+            Assert.AreEqual(res_actual, 8);
+        }
+
+    }
+}
