@@ -12,17 +12,17 @@ namespace FibonacciWebApi.Controllers
     //you can make a URI parameter optional by adding a question mark to the route parameter.If a route 
     //parameter is optional, you must define a default value for the method parameter.
 
-    [Route("api/fibonacci/{id?}")]
+    [Route("api/fibonacci/")]
     [ApiController]
     public class FibonacciController : ControllerBase
     {
         Services.IFibonacci fib = new Services.Fibonacci();
         
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id=0)
+        public ActionResult<int> Get(int id=0)
         {
             int res = fib.CalcularFibonacci(id);
-            return res.ToString();
+            return res;
         }
     }
 }

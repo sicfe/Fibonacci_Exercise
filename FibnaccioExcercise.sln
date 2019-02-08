@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BA711E72-E228-4ADF-A325-6FF3F602C9D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonaccioWebApi", "src\FibonacciWebApi\FibonacciWebApi.csproj", "{F7F4CF73-7FF0-4C55-ACE0-862660C9B21F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FibonacciWebApi", "src\FibonacciWebApi\FibonacciWebApi.csproj", "{F7F4CF73-7FF0-4C55-ACE0-862660C9B21F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{169AB2BB-7580-44FA-BEFA-22DB2286E726}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciExcercise.UnitTests", "tests\FibonacciExcercise.UnitTests\FibonacciExcercise.UnitTests.csproj", "{7285F549-0E3D-4BBE-A88B-A9E1F6915017}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FibonacciExcercise.UnitTests", "tests\FibonacciExcercise.UnitTests\FibonacciExcercise.UnitTests.csproj", "{7285F549-0E3D-4BBE-A88B-A9E1F6915017}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F7F4CF73-7FF0-4C55-ACE0-862660C9B21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -49,8 +46,14 @@ Global
 		{7285F549-0E3D-4BBE-A88B-A9E1F6915017}.Release|x86.ActiveCfg = Release|Any CPU
 		{7285F549-0E3D-4BBE-A88B-A9E1F6915017}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F7F4CF73-7FF0-4C55-ACE0-862660C9B21F} = {BA711E72-E228-4ADF-A325-6FF3F602C9D4}
 		{7285F549-0E3D-4BBE-A88B-A9E1F6915017} = {169AB2BB-7580-44FA-BEFA-22DB2286E726}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35702212-A597-4888-9EF4-2E245653F264}
 	EndGlobalSection
 EndGlobal
