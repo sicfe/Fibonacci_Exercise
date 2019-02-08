@@ -2,6 +2,8 @@
 Ejercicio para iniciar en prácticas de programación
 
 # Descripción del proyecto
+proyecto web que recibe por la url una variable de tipo entero -que captura por metodo get- y retorna 
+el resultado de invocar el metodo CalcularFibonacci. 
 
 # Herramientas
 - SDK de net core 2.2 [Download](https://dotnet.microsoft.com/download/dotnet-core/2.2)
