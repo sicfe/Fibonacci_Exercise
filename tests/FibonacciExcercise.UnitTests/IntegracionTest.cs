@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -39,6 +40,20 @@ namespace FibonacciExcercise.IntegrationTest
             // Verifico que la respuesta sea correcta
             var responseString = await response.Content.ReadAsAsync<int>();
             Assert.AreEqual(2, responseString);
+        }
+
+        [TestMethod]
+        public async Task InvocarApiIncorrecta()
+        {
+            //Act
+            var response = await _client.GetAsync("/api/fibonacci/-35");
+
+            //Verifico que encabezado sea Exitoso
+            Assert.IsTrue(response.IsSuccessStatusCode, "El código de la respuesta debería ser exitoso");
+
+            // Verifico que la respuesta sea correcta
+            var responseInt = await response.Content.ReadAsAsync<int>();
+            Assert.AreEqual(-1, responseInt);
         }
     }
 }
