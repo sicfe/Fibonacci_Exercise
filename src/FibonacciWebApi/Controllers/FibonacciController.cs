@@ -21,8 +21,16 @@ namespace FibonacciWebApi.Controllers
         [HttpGet("{id}")]
         public ActionResult<int> Get(int id=0)
         {
-            int res = fib.CalcularFibonacci(id);
-            return res;
+            try
+            {
+                int res = fib.CalcularFibonacci(id);
+                return res;
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+
         }
     }
 }
