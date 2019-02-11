@@ -6,12 +6,18 @@ namespace FibonacciWebApi.Controllers
     [ApiController]
     public class FibonacciController : ControllerBase
     {
+        private readonly Service.IFibonacciService fibonacciService;
+
+        public FibonacciController(Service.IFibonacciService pFibonacciService)
+        {
+            fibonacciService = pFibonacciService;
+        }
         [HttpGet("{n}")]
         public ActionResult<int> Get(int n)
         {
             int resultado = 0;
-            Service.IFibonacciService f = new Service.FibonacciService();
-            resultado = f.CalcularFibonacci(n);
+            
+            resultado = fibonacciService.CalcularFibonacci(n);
             return resultado;
         }
     }
