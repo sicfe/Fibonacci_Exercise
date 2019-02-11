@@ -13,9 +13,9 @@ namespace FibonacciWebApi.Controllers
             fibonacciService = pFibonacciService;
         }
         [HttpGet("{n}")]
-        public ActionResult<int> Get(int n)
+        public ActionResult<long> Get(int n)
         {
-            return fibonacciService.CalcularFibonacci(n);
+            return fibonacciService.CalcularFibonacci(n, 0, 1);
         }
     }
 }
