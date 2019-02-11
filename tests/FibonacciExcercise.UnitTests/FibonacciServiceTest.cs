@@ -9,21 +9,21 @@ namespace FibonacciExcercise.UnitTests
     public void FibonacciTest()
     {
       FibonacciWebApi.Service.FibonacciService f = new FibonacciWebApi.Service.FibonacciService();
-      f.CalcularFibonacci(5);
+      Assert.AreEqual(5,f.CalcularFibonacci(5));
     }
 
     [TestMethod]
     public void FibonacciTestCero()
     {
       FibonacciWebApi.Service.FibonacciService f = new FibonacciWebApi.Service.FibonacciService();
-      f.CalcularFibonacci(0);
+      Assert.AreEqual(0,f.CalcularFibonacci(0));
     }
 
     [TestMethod]
     public void FibonacciTestNegativo()
     {
       FibonacciWebApi.Service.FibonacciService f = new FibonacciWebApi.Service.FibonacciService();
-      f.CalcularFibonacci(-5);
+      Assert.AreEqual(-1,f.CalcularFibonacci(-5));
     }
 
 
