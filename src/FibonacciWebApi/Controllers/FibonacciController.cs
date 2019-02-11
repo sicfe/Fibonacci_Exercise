@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FibonacciWebApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace FibonacciWebApi.Controllers
 {
@@ -16,14 +16,19 @@ namespace FibonacciWebApi.Controllers
     [ApiController]
     public class FibonacciController : ControllerBase
     {
-        Services.IFibonacci fib = new Services.Fibonacci();
-        
+        private readonly IFibonacci _fib;
+
+        public FibonacciController(IFibonacci fib)
+        {
+            _fib = fib;
+        }
+                
         [HttpGet("{id}")]
         public ActionResult<int> Get(int id=0)
         {
             try
             {
-                int res = fib.CalcularFibonacci(id);
+                int res = _fib.CalcularFibonacci(id);
                 return res;
             }
             catch (Exception e)
