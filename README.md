@@ -2,6 +2,9 @@
 Ejercicio para iniciar en prácticas de programación
 
 # Descripción del proyecto
+Este proyecto provee una API para obtener el numero fibonacci de un numero dado.
+Se accede mediante la URL /api/fibonacci/{numero}
+Nota: En caso de pasar un numero negativo, se devuelve -1.
 
 # Herramientas
 - SDK de net core 2.2 [Download](https://dotnet.microsoft.com/download/dotnet-core/2.2)
