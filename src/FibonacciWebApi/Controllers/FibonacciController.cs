@@ -33,7 +33,8 @@ namespace FibonacciWebApi.Controllers
             }
             catch (Exception e)
             {
-                return -1;
+                Console.WriteLine("no es correcto invocar CalcularFibonacci de un negativo");
+                return null;
             }
 
         }

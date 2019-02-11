@@ -12,11 +12,14 @@ namespace FibonacciWebApi.Services
             {
                 throw new Exception(Constantes.obtenerError(Constantes.ERROR_NEGATIVO));
             }
-            if (i==0 || i==1)
+            if (i==0)
+            {
+                return 0;
+            }
+            else if (i == 1)
             {
                 return 1;
-            }
-            else
+            }else
             {
                 return CalcularFibonacci(i-1) + CalcularFibonacci(i-2);
             }
