@@ -7,9 +7,6 @@ namespace FibonacciWebApi.Services
 {
     public class Fibonacci:IFibonacci
     {
-        
-        
-        //OJO la implementacion de clases de una interfaz siempre es public
         public int CalcularFibonacci(int i) {
             if (i < 0)
             {
