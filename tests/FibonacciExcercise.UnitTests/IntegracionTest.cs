@@ -39,7 +39,7 @@ namespace FibonacciExcercise.IntegrationTest
 
             // Verifico que la respuesta sea correcta
             var responseString = await response.Content.ReadAsAsync<int>();
-            Assert.AreEqual(2, responseString);
+            Assert.AreEqual(1, responseString);
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace FibonacciExcercise.IntegrationTest
 
             // Verifico que la respuesta sea correcta
             var responseInt = await response.Content.ReadAsAsync<int>();
-            Assert.AreEqual(-1, responseInt);
+            Assert.AreEqual(0, responseInt);
         }
     }
 }

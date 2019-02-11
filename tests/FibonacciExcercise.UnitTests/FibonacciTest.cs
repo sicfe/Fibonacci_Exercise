@@ -9,7 +9,7 @@ using FibonacciWebApi;
 namespace FibonacciExcercise.UnitTests
 {
     [TestClass]
-    public class FiboTest
+    public class FibonacciTest
     {
         IFibonacci fib;
 
@@ -36,7 +36,7 @@ namespace FibonacciExcercise.UnitTests
         public void PasosBaseTest()
         {
             int pasoBase_1 = fib.CalcularFibonacci(0);
-            Assert.AreEqual(pasoBase_1, 1);
+            Assert.AreEqual(pasoBase_1, 0);
             int paseBase_2 = fib.CalcularFibonacci(1);
             Assert.AreEqual(paseBase_2, 1);               
         }
@@ -46,7 +46,7 @@ namespace FibonacciExcercise.UnitTests
         {
             // testeo un nro valido al azar
             int res_actual = fib.CalcularFibonacci(5);
-            Assert.AreEqual(res_actual, 8);
+            Assert.AreEqual(res_actual, 5);
         }
 
     }
