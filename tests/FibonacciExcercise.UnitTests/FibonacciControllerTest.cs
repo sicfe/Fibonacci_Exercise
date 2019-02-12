@@ -25,7 +25,7 @@ namespace FibonacciExcercise.UnitTests
             //int valorEsperado = fib.CalcularFibonacci(7); 
             int valorEsperado = 13;
             FibonacciController fibCont = new FibonacciController(fib2);
-            ActionResult<int> valorActual = fibCont.Get(7);
+            ActionResult<long> valorActual = fibCont.Get(7);
             Assert.AreEqual(valorEsperado, valorActual.Value); 
         }
     }

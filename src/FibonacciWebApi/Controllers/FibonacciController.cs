@@ -24,16 +24,16 @@ namespace FibonacciWebApi.Controllers
         }
                 
         [HttpGet("{id}")]
-        public ActionResult<int> Get(int id=0)
+        public ActionResult<long> Get(int id=0)
         {
             try
             {
-                int res = _fib.CalcularFibonacci(id);
+                long res = _fib.CalcularFibonacci(id,0,1);
                 return res;
             }
             catch (Exception e)
             {
-                Console.WriteLine("no es correcto invocar CalcularFibonacci de un negativo");
+                Console.WriteLine(e.Message);
                 return null;
             }
 

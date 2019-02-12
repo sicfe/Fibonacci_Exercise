@@ -23,7 +23,7 @@ namespace FibonacciExcercise.UnitTests
         public void NegativoTest()
         {
             try {
-                int res = fib.CalcularFibonacci(-1);
+                long res = fib.CalcularFibonacci(-1,0,1);
             }
             catch(Exception e)
             {
@@ -35,9 +35,9 @@ namespace FibonacciExcercise.UnitTests
         [TestMethod]
         public void PasosBaseTest()
         {
-            int pasoBase_1 = fib.CalcularFibonacci(0);
+            long pasoBase_1 = fib.CalcularFibonacci(0,0,1);
             Assert.AreEqual(pasoBase_1, 0);
-            int paseBase_2 = fib.CalcularFibonacci(1);
+            long paseBase_2 = fib.CalcularFibonacci(1,0,1);
             Assert.AreEqual(paseBase_2, 1);               
         }
 
@@ -45,7 +45,7 @@ namespace FibonacciExcercise.UnitTests
         public void CalcularFibonacciTest()
         {
             // testeo un nro valido al azar
-            int res_actual = fib.CalcularFibonacci(5);
+            long res_actual = fib.CalcularFibonacci(5,0,1);
             Assert.AreEqual(res_actual, 5);
         }
 
