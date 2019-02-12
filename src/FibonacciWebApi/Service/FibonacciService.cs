@@ -2,7 +2,12 @@
 {
     public class FibonacciService : IFibonacciService
     {
-        public long CalcularFibonacci(int i, long a, long b)
+        public long CalcularFibonacci(int i)
+        {
+            return fibonacciRecursive(i, 0, 1);
+        }
+        
+        private long fibonacciRecursive(int i, long a, long b)
         {
             long resultado = 0;
 
@@ -18,7 +23,7 @@
             // Paso recursivo.
             else if (i > 1 && i <= 90)
             {
-                resultado = CalcularFibonacci(i-1, b, a + b);
+                resultado = fibonacciRecursive(i-1, b, a + b);
             }
             // Devuelvo -1 en caso de recibir un numero negativo o mayor a 90.
             else 

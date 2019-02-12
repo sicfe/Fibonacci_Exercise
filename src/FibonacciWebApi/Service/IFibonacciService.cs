@@ -2,6 +2,6 @@
 {
     public interface IFibonacciService
     {
-        long CalcularFibonacci(int i, long a, long b);
+        long CalcularFibonacci(int i);
     }
 }
