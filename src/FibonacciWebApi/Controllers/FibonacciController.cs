@@ -28,7 +28,7 @@ namespace FibonacciWebApi.Controllers
         {
             try
             {
-                long res = _fib.CalcularFibonacci(id,0,1);
+                long res = _fib.CalcularFibonacci(id);
                 return res;
             }
             catch (Exception e)

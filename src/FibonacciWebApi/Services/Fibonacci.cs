@@ -7,7 +7,7 @@ namespace FibonacciWebApi.Services
 {
     public class Fibonacci:IFibonacci
     {
-        public long CalcularFibonacci(long i, Int64 a, Int64 b) {
+        private long CalcularFibonacci(long i, Int64 a, Int64 b) {
             if (i < 0)
             {
                 throw new Exception(Constantes.obtenerError(Constantes.ERROR_NEGATIVO));
@@ -25,6 +25,7 @@ namespace FibonacciWebApi.Services
             }
         }
 
+        public long CalcularFibonacci(long i)=>CalcularFibonacci(i, 0, 1);
 }
 }
 
