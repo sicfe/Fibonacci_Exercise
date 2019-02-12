@@ -3,7 +3,8 @@ Ejercicio para iniciar en prácticas de programación
 
 # Descripción del proyecto
 proyecto web que recibe por la url una variable de tipo entero -que captura por metodo get- y retorna 
-el resultado de invocar el metodo CalcularFibonacci. 
+el resultado de aplicar la sucesión de fibonacci para ese valor. 
+En caso de invocar con un valor negativo, al cliente no le retorna nada, y en consola se imprime un mensaje de error que se captura de la excepción.
 
 # Herramientas
 - SDK de net core 2.2 [Download](https://dotnet.microsoft.com/download/dotnet-core/2.2)
