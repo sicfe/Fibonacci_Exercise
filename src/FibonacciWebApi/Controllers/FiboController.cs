@@ -20,10 +20,10 @@ namespace FibonacciWebApi.Controllers
         }
 
         [HttpGet("{i}")]
-        public int CalcularFibonacci(int i)
+        public long CalcularFibonacci(int i)
         {
             Services.IFiboService serv = new Services.FiboService();
-            int res = serv.CalcularFibonacci(i);
+            long res = serv.CalcularFibonacci(i);
             return res;
 
             //int fibo = 1;

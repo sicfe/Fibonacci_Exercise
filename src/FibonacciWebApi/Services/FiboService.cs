@@ -7,7 +7,7 @@ namespace FibonacciWebApi.Services
 {
     public class FiboService : IFiboService
     {
-        public int CalcularFibonacci(int i)
+        public long CalcularFibonacci(int i)
         {
             if (i < 0)
             {
@@ -17,11 +17,11 @@ namespace FibonacciWebApi.Services
 
 
 
-            int fibo = 1;
-            int fiboPrev = 0;
+            long fibo = 1;
+            long fiboPrev = 0;
             for (int n = 1; n < i; n++)
             {
-                int fiboPrevPrev = fiboPrev;
+                long fiboPrevPrev = fiboPrev;
                 fiboPrev = fibo;
                 fibo = fiboPrev + fiboPrevPrev;
             }
