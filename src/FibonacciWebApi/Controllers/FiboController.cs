@@ -22,15 +22,19 @@ namespace FibonacciWebApi.Controllers
         [HttpGet("{i}")]
         public int CalcularFibonacci(int i)
         {
-            int fibo = 1;
-            int fiboPrev = 0;
-            for (int n = 1; n < i; n++)
-            {
-                int fiboPrevPrev = fiboPrev;
-                fiboPrev = fibo;
-                fibo = fiboPrev + fiboPrevPrev;
-            }
-            return fibo;
+            Services.IFiboService serv = new Services.FiboService();
+            int res = serv.CalcularFibonacci(i);
+            return res;
+
+            //int fibo = 1;
+            //int fiboPrev = 0;
+            //for (int n = 1; n < i; n++)
+            //{
+            //    int fiboPrevPrev = fiboPrev;
+            //    fiboPrev = fibo;
+            //    fibo = fiboPrev + fiboPrevPrev;
+            //}
+            //return fibo;
         }
 
 
