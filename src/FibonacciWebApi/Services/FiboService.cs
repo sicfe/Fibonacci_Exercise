@@ -9,6 +9,14 @@ namespace FibonacciWebApi.Services
     {
         public int CalcularFibonacci(int i)
         {
+            if (i < 0)
+            {
+                return -1;
+            }
+            else if (i == 0) return 0;
+
+
+
             int fibo = 1;
             int fiboPrev = 0;
             for (int n = 1; n < i; n++)
