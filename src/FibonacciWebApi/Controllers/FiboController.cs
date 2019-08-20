@@ -26,15 +26,6 @@ namespace FibonacciWebApi.Controllers
             long res = serv.CalcularFibonacci(i);
             return res;
 
-            //int fibo = 1;
-            //int fiboPrev = 0;
-            //for (int n = 1; n < i; n++)
-            //{
-            //    int fiboPrevPrev = fiboPrev;
-            //    fiboPrev = fibo;
-            //    fibo = fiboPrev + fiboPrevPrev;
-            //}
-            //return fibo;
         }
 
 
