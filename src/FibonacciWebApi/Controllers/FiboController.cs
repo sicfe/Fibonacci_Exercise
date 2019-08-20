@@ -12,6 +12,13 @@ namespace FibonacciWebApi.Controllers
     [ApiController]
     public class FiboController : ControllerBase
     {
+         private readonly Services.IFiboService FiboService;
+
+         public FiboController(Services.IFiboService pFiboService)
+        {
+            FiboService = pFiboService;
+        }
+      
         // GET: api/Fibo
         [HttpGet]
         public IEnumerable<string> Get()
@@ -22,8 +29,8 @@ namespace FibonacciWebApi.Controllers
         [HttpGet("{i}")]
         public long CalcularFibonacci(int i)
         {
-            Services.IFiboService serv = new Services.FiboService();
-            long res = serv.CalcularFibonacci(i);
+            
+            long res = FiboService.CalcularFibonacci(i);
             return res;
 
         }
