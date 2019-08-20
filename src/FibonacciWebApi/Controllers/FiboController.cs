@@ -29,12 +29,8 @@ namespace FibonacciWebApi.Controllers
         [HttpGet("{i}")]
         public long CalcularFibonacci(int i)
         {
-            
-            long res = FiboService.CalcularFibonacci(i);
-            return res;
-
+            return FiboService.CalcularFibonacci(i);
         }
-
 
     }
 }
