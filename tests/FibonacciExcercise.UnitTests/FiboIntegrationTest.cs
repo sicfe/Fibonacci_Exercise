@@ -30,5 +30,16 @@ namespace FibonacciExcercise.UnitTests
             var responseLong = await httpResponse.Content.ReadAsAsync<long>();
             Assert.AreEqual(55, responseLong);
         }
+
+        [TestMethod]
+        public async Task LlamadaNegativa()
+        {
+            var httpResponse = await _client.GetAsync("/api/fibo/-5");
+            Assert.IsTrue(httpResponse.IsSuccessStatusCode, "Código erroneo");
+            var responseLong = await httpResponse.Content.ReadAsAsync<long>();
+            Assert.AreEqual(-1, responseLong);
+        }
+
+        
     }
 }
