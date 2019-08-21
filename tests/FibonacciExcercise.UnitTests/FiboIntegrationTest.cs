@@ -26,7 +26,7 @@ namespace FibonacciExcercise.UnitTests
         public async Task LlamadaCorrecta()
         {
             var httpResponse = await _client.GetAsync("/api/fibo/10");
-            Assert.IsTrue(httpResponse.IsSuccessStatusCode, "Código erroneo");
+            Assert.IsTrue(httpResponse.IsSuccessStatusCode, "Código erroneo" + httpResponse.StatusCode);
             var responseLong = await httpResponse.Content.ReadAsAsync<long>();
             Assert.AreEqual(55, responseLong);
         }
@@ -35,11 +35,22 @@ namespace FibonacciExcercise.UnitTests
         public async Task LlamadaNegativa()
         {
             var httpResponse = await _client.GetAsync("/api/fibo/-5");
-            Assert.IsTrue(httpResponse.IsSuccessStatusCode, "Código erroneo");
+            Assert.IsTrue(httpResponse.IsSuccessStatusCode, "Código erroneo" + httpResponse.StatusCode);
             var responseLong = await httpResponse.Content.ReadAsAsync<long>();
             Assert.AreEqual(-1, responseLong);
         }
 
-        
+        [TestMethod]
+        public async Task LlamadaErronea()
+        {
+            var httpResponse = await _client.GetAsync("/api/fibo/a");
+            //httpResponse.EnsureSuccessStatusCode();
+            Assert.IsFalse(httpResponse.IsSuccessStatusCode, "Código erroneo" + " " + httpResponse.ToString());
+            //var responseLong = await httpResponse.Content.ReadAsAsync<long>();
+            //var responseError = httpResponse.StatusCode;
+            //Assert.AreEqual();
+            
+        }
+
     }
 }
