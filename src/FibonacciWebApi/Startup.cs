@@ -15,9 +15,11 @@ namespace FibonacciWebApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly ILogger _logger;
+        public Startup(IConfiguration configuration, ILogger<Startup> logger)
         {
             Configuration = configuration;
+            _logger = logger;
         }
 
         public IConfiguration Configuration { get; }
@@ -27,6 +29,7 @@ namespace FibonacciWebApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<Services.IFiboService, Services.FiboService>();
+            _logger.LogInformation("Agregado fibonacci a servicios");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +38,7 @@ namespace FibonacciWebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                _logger.LogInformation("En entorno de desarrollo");
             }
             else
             {
