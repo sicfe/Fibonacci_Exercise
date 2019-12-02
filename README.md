@@ -3,6 +3,8 @@ Ejercicio para iniciar en prácticas de programación
 
 # Descripción del proyecto
 
+Calcula la serie de Fibonacci de numeros pertenecientes al conjunto de los Naturales entre el 0 y el 90
+
 # Herramientas
 - SDK de net core 2.2 [Download](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 - Visual Code [Download](https://code.visualstudio.com/)
