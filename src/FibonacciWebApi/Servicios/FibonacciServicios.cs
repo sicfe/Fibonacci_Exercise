@@ -10,11 +10,19 @@ namespace FibonacciWebApi.Servicios
     {
         public int CalcularFibonacci(int i)
         {
-           return RealizarFibonacci(i);
+            if(i < 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return RealizarFibonacci(i);
+            }
         }
-        
+
         public int RealizarFibonacci(int fibo)
-        {  if (fibo == 0)
+        {
+            if (fibo == 0)
             {
                 return 0;
             }
@@ -25,7 +33,7 @@ namespace FibonacciWebApi.Servicios
             else
             {
                 return RealizarFibonacci(fibo - 1) + RealizarFibonacci(fibo - 2);
-            }         
+            }
         }
     }
 }
