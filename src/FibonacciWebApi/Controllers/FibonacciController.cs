@@ -11,6 +11,13 @@ namespace FibonacciWebApi.Controllers
     [ApiController]
     public class FibonacciController : ControllerBase
     {
+        private IFibonacciServicios _fibonacci;
+        
+        public FibonacciController(IFibonacciServicios fibonacci)
+        {
+            _fibonacci = fibonacci;
+        }
+
         [HttpGet]
         public ActionResult<string> Get()
         {
@@ -20,14 +27,14 @@ namespace FibonacciWebApi.Controllers
         [HttpGet("{numero}")]
         public ActionResult<string> Get(int numero)
         {
-            IFibonacciServicios f = new FibonacciServicios();
+            
             if (numero < 0 || numero > 90)
             {
                 return "Debe ingresar un numero perteneciente al conjunto de los Naturales entre 0 y 90";
             }
             else
             {
-                return f.CalcularFibonacci(numero).ToString();
+                return _fibonacci.CalcularFibonacci(numero).ToString();
             }
             //return RealizarFibonacci(fibo);
         }
