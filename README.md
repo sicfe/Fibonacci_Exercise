@@ -3,7 +3,8 @@ Ejercicio para iniciar en prácticas de programación
 
 # Descripción del proyecto
 
-Calcula la serie de Fibonacci de numeros pertenecientes al conjunto de los Naturales entre el 0 y el 90
+El proyecto se hizo en .Net. Es una Api la cual calcula la serie de Fibonacci de numeros pertenecientes al conjunto de los Naturales entre el 0 y el 90.
+Para poder acceder a la misma, hay que utilizar la URL: /api/fibonacci/{número}, donde número es el número al cual le quiero calcular el Fibonacci.
 
 # Herramientas
 - SDK de net core 2.2 [Download](https://dotnet.microsoft.com/download/dotnet-core/2.2)

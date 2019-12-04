@@ -25,34 +25,16 @@ namespace FibonacciWebApi.Controllers
         }
 
         [HttpGet("{numero}")]
-        public ActionResult<string> Get(int numero)
+        public ActionResult<long> Get(int numero)
         {
-            
-            if (numero < 0 || numero > 90)
+            try
             {
-                return "Debe ingresar un numero perteneciente al conjunto de los Naturales entre 0 y 90";
+                return _fibonacci.CalcularFibonacci(numero);
             }
-            else
-            {
-                return _fibonacci.CalcularFibonacci(numero).ToString();
+            catch (ArgumentException ae) {
+                return BadRequest(ae.Message);
             }
-            //return RealizarFibonacci(fibo);
         }
 
-        //private int RealizarFibonacci(int fibo)
-        //{
-        //    if (fibo == 0)
-        //    {
-        //        return 0;
-        //    }
-        //    else if (fibo == 1)
-        //    {
-        //        return 1;
-        //    }
-        //    else
-        //    {
-        //        return RealizarFibonacci(fibo - 1) + RealizarFibonacci(fibo - 2);
-        //    }
-        //}
     }
 }
