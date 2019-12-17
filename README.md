@@ -2,6 +2,9 @@
 Ejercicio para iniciar en prácticas de programación
 
 # Descripción del proyecto
+- El proyecto calcula el valor que alcanza la función de Fibonacci en el índice indicado pasado por URL.
+- Existe una Interfaz Servicios que es utilizada por el  Controlador Fibonacci, el cual recibe el número indicado
+  y devuelve el resultado de la función. 
 
 # Herramientas
 - SDK de net core 2.2 [Download](https://dotnet.microsoft.com/download/dotnet-core/2.2)
