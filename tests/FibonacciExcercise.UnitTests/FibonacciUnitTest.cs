@@ -21,13 +21,17 @@ namespace FibonacciExcercise.UnitTests
         public void FibonacciTestNegativos()
         {
             ArgumentOutOfRangeException ExceptionEsperada = null;
+            
+                Servicios ser = new Fibonacci();
             try
             {
-                Servicios ser = new Fibonacci();
-
                 Assert.AreEqual(0, ser.CalcularFibonacci(-2));
-                Assert.AreEqual(1, ser.CalcularFibonacci(-1));
             }
+            catch (AssertFailedException fail)
+            {
+                throw fail;
+            }
+           
             catch (ArgumentOutOfRangeException ex)
             {
                 ExceptionEsperada = ex;
