@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks; 
 namespace FibonacciWebApi.Services
 {
-    public class Fibonacci : Servicios
+    public class Fibonacci : IServicios
     {
         public long CalcularFibonacci(int i)
         {
@@ -24,9 +24,5 @@ namespace FibonacciWebApi.Services
                 throw ex;
             }
         }
-
-
-
-
     }
 }
