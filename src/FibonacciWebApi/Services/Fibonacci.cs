@@ -6,18 +6,18 @@ namespace FibonacciWebApi.Services
 {
     public class Fibonacci : Servicios
     {
-        public int CalcularFibonacci(int i)
+        public long CalcularFibonacci(int i)
         {
             try
             {
                 if (i < 0)
                     throw new ArgumentOutOfRangeException();
-                if (i == 1)
-                    return 1;
-                else if (i == 0)
-                    return 0;
-                else
-                    return (CalcularFibonacci(i - 2) + CalcularFibonacci(i - 1));
+                else if (i < 71)
+                {
+                    return Convert.ToInt64((1 / Math.Sqrt(5)) * Math.Pow(((1 + Math.Sqrt(5)) / 2), i) + (-1 / Math.Sqrt(5)) * Math.Pow(((1 - Math.Sqrt(5)) / 2), i));
+                }
+                 else
+                     return (CalcularFibonacci(i - 2) + CalcularFibonacci(i - 1));
             }
             catch (ArgumentOutOfRangeException ex)
             {
