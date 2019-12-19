@@ -16,22 +16,20 @@ namespace FibonacciExcercise.UnitTests
             Assert.AreEqual(0, ser.CalcularFibonacci(0));
             Assert.AreEqual(1, ser.CalcularFibonacci(1));
             Assert.AreEqual(1, ser.CalcularFibonacci(2));
+            Assert.AreEqual(832040, ser.CalcularFibonacci(30));
+            Assert.AreEqual(2880067194370816120, ser.CalcularFibonacci(90));
+
         }
         [TestMethod]
         public void FibonacciTestNegativos()
         {
             ArgumentOutOfRangeException ExceptionEsperada = null;
             
-                Servicios ser = new Fibonacci();
+            Servicios ser = new Fibonacci();
             try
             {
                 Assert.AreEqual(0, ser.CalcularFibonacci(-2));
             }
-            catch (AssertFailedException fail)
-            {
-                throw fail;
-            }
-           
             catch (ArgumentOutOfRangeException ex)
             {
                 ExceptionEsperada = ex;
