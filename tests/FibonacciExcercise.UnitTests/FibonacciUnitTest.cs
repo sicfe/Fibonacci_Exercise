@@ -12,7 +12,7 @@ namespace FibonacciExcercise.UnitTests
         [TestMethod]
         public void FibonacciTestPostivos() 
         {
-            Servicios ser = new Fibonacci();
+            IServicios ser = new Fibonacci();
             Assert.AreEqual(0, ser.CalcularFibonacci(0));
             Assert.AreEqual(1, ser.CalcularFibonacci(1));
             Assert.AreEqual(1, ser.CalcularFibonacci(2));
@@ -25,7 +25,7 @@ namespace FibonacciExcercise.UnitTests
         {
             ArgumentOutOfRangeException ExceptionEsperada = null;
             
-            Servicios ser = new Fibonacci();
+            IServicios ser = new Fibonacci();
             try
             {
                 Assert.AreEqual(0, ser.CalcularFibonacci(-2));
