@@ -13,10 +13,10 @@ namespace FibonacciWebApi.Controllers
     {
         // GET api/Fibonacci/5
         [HttpGet("{número}")]
-        public ActionResult<int> Get(int número)
+        public ActionResult<long> Get(int número)
         {
             Servicios ser = new Fibonacci();
-            int res = ser.CalcularFibonacci(número);
+            long res = ser.CalcularFibonacci(número);
             return res;
         }
     }

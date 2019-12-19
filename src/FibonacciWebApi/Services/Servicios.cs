@@ -7,6 +7,6 @@ namespace FibonacciWebApi.Services
 {
     public interface Servicios
     {
-        int CalcularFibonacci(int i);
+        long CalcularFibonacci(int i);
     }
 }
