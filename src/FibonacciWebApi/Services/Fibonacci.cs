@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks; 
 namespace FibonacciWebApi.Services
 {
-    public class Fibonacci : IServicios
+    public class Fibonacci : IFIbonacciService
     {
         public long CalcularFibonacci(int i)
         {
@@ -21,7 +21,7 @@ namespace FibonacciWebApi.Services
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                throw ex;
+                throw new ArgumentOutOfRangeException("Se ha producido un error. Por favor inserte un número entre 0 y 90", ex);
             }
         }
     }

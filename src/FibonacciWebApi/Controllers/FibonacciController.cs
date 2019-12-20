@@ -11,8 +11,8 @@ namespace FibonacciWebApi.Controllers
     [ApiController]
     public class FibonacciController : ControllerBase
     {
-        IServicios ser;
-          public FibonacciController(IServicios servi)
+        IFIbonacciService ser;
+          public FibonacciController(IFIbonacciService servi)
           {
               ser = servi;
           }
@@ -21,8 +21,15 @@ namespace FibonacciWebApi.Controllers
         [HttpGet("{número}")]
         public ActionResult<long> Get(int número)
         {
-            ser = new Fibonacci();
-            return ser.CalcularFibonacci(número);
+            try
+            {
+                ser = new Fibonacci();
+                return ser.CalcularFibonacci(número);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
