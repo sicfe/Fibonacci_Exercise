@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FibonacciWebApi.Services
 {
-    public interface IServicios
+    public interface IFIbonacciService
     {
         long CalcularFibonacci(int i);
     }
