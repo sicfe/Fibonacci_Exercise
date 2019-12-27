@@ -25,8 +25,8 @@ namespace FibonacciExcercise.UnitTests
         {
             
             IFIbonacciService ser = new Fibonacci();
-
-                Assert.AreEqual(Constantes.MSG_ERROR_FUERA_RANGO, ser.CalcularFibonacci(-2).Mensaje);
+            Assert.IsFalse(ser.CalcularFibonacci(-2).Exito);
+            Assert.AreEqual(Constantes.MSG_ERROR_FUERA_RANGO, ser.CalcularFibonacci(-2).Mensaje);
  
         }
     }
