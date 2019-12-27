@@ -4,25 +4,48 @@ using System.Linq;
 using System.Threading.Tasks; 
 namespace FibonacciWebApi.Services
 {
+    public static class Constantes
+    {
+        public const String MSG_ERROR_FUERA_RANGO = "El valor del número ingresado se encuentra fuera del rango permitido.";
+    }
+    
+    
+
     public class Fibonacci : IFIbonacciService
     {
-        public long CalcularFibonacci(int i)
+        
+
+        public RespuestaFibonacci CalcularFibonacci(long i)
         {
+            RespuestaFibonacci respuesta = new RespuestaFibonacci();
             try
             {
                 if (i < 0)
-                    throw new ArgumentOutOfRangeException();
+                {
+                    throw new IndexOutOfRangeException(Constantes.MSG_ERROR_FUERA_RANGO);
+                }
                 else if (i < 71)
                 {
-                    return Convert.ToInt64((1 / Math.Sqrt(5)) * Math.Pow(((1 + Math.Sqrt(5)) / 2), i) + (-1 / Math.Sqrt(5)) * Math.Pow(((1 - Math.Sqrt(5)) / 2), i));
+                    respuesta.Exito = true;
+                    respuesta.Resultado = Convert.ToInt64((1 / Math.Sqrt(5)) * Math.Pow(((1 + Math.Sqrt(5)) / 2), i) + (-1 / Math.Sqrt(5)) * Math.Pow(((1 - Math.Sqrt(5)) / 2), i));
+                    
                 }
-                 else
-                     return (CalcularFibonacci(i - 2) + CalcularFibonacci(i - 1));
+                else
+                {
+                    respuesta.Exito = true;
+                    respuesta.Resultado = Convert.ToInt64((CalcularFibonacci(i - 2).Resultado + CalcularFibonacci(i - 1).Resultado));
+                   
+                }
+                return respuesta;
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (Exception ex)
             {
-                throw new ArgumentOutOfRangeException("Se ha producido un error. Por favor inserte un número entre 0 y 90", ex);
+                respuesta.Exito = false;
+                respuesta.Mensaje = ex.Message;
+                return respuesta;
+                
             }
+           
         }
     }
 }

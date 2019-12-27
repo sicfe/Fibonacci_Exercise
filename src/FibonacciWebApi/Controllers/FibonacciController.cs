@@ -19,16 +19,20 @@ namespace FibonacciWebApi.Controllers
 
         // GET api/Fibonacci/5
         [HttpGet("{número}")]
-        public ActionResult<long> Get(int número)
+        public ActionResult<long> Get(long número)
         {
             try
             {
                 ser = new Fibonacci();
-                return ser.CalcularFibonacci(número);
+                RespuestaFibonacci res = ser.CalcularFibonacci(número);
+                if (res.Exito)
+                    return res.Resultado;
+                else
+                    throw new Exception(res.Mensaje);
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (Exception respuesta)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(respuesta.Message);
             }
         }
     }

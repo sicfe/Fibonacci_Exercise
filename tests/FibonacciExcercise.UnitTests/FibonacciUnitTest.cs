@@ -13,28 +13,21 @@ namespace FibonacciExcercise.UnitTests
         public void FibonacciTestPostivos() 
         {
             IFIbonacciService ser = new Fibonacci();
-            Assert.AreEqual(0, ser.CalcularFibonacci(0));
-            Assert.AreEqual(1, ser.CalcularFibonacci(1));
-            Assert.AreEqual(1, ser.CalcularFibonacci(2));
-            Assert.AreEqual(832040, ser.CalcularFibonacci(30));
-            Assert.AreEqual(2880067194370816120, ser.CalcularFibonacci(90));
+            Assert.AreEqual(0, ser.CalcularFibonacci(0).Resultado);
+            Assert.AreEqual(1, ser.CalcularFibonacci(1).Resultado);
+            Assert.AreEqual(1, ser.CalcularFibonacci(2).Resultado);
+            Assert.AreEqual(832040, ser.CalcularFibonacci(30).Resultado);
+            Assert.AreEqual(2880067194370816120, ser.CalcularFibonacci(90).Resultado);
 
         }
         [TestMethod]
         public void FibonacciTestNegativos()
         {
-            ArgumentOutOfRangeException ExceptionEsperada = null;
             
             IFIbonacciService ser = new Fibonacci();
-            try
-            {
-                Assert.AreEqual(0, ser.CalcularFibonacci(-2));
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                ExceptionEsperada = ex;
-            }
-            Assert.IsNotNull(ExceptionEsperada);
+
+                Assert.AreEqual(Constantes.MSG_ERROR_FUERA_RANGO, ser.CalcularFibonacci(-2).Mensaje);
+ 
         }
     }
 
