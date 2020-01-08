@@ -29,6 +29,13 @@ namespace FibonacciExcercise.IntegrationTests
             var valorRespuesta = await respuesta.Content.ReadAsStringAsync();
             Assert.AreEqual(5, Convert.ToInt32(valorRespuesta));
         }
+
+        public async Task FibonacciFail()
+        {
+            HttpClient httpClient = _testServer.CreateClient();
+            var respuesta = await httpClient.GetAsync("api/fibonafail/");
+            Assert.AreEqual(HttpStatusCode.NotFound, respuesta.StatusCode);
+        }
     }
 
 }
