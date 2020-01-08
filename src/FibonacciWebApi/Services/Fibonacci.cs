@@ -6,28 +6,48 @@ using System.Threading.Tasks;
 
 namespace FibonacciWebApi.Services
 {
+    public static class Constantes
+    {
+        public const string ErrorMayor90 = "El valor debe ser menor a 90";
+        public const string ErrorMenor0 = "El valor no puede ser negativo";
+    }
     public class Fibonacci : IFibonacciServices
     {
-        public int SecuenciaFibo(int numero)
+        public RespuestaFibo SecuenciaFibo(int numero)
         {
+            return calcularFibo(numero);
+        }
+
+        private RespuestaFibo calcularFibo(int numero)
+        {
+            RespuestaFibo res = new RespuestaFibo();
+
             if (numero < 0)
             {
-                return -1;
+                res.Mensage = Constantes.ErrorMenor0;
+                res.Exito = false;
             }
-            if (numero > 90)
+            else if (numero > 90)
             {
-                return -1;
+                res.Mensage = Constantes.ErrorMayor90;
+                res.Exito = false;
             }
-            if (numero == 0)
+            else if (numero == 0)
             {
-                return 0;
+                res.Resultado = 0;
+                res.Exito = true;
             }
-            if (numero == 1)
+            else if (numero == 1)
             {
-                return 1;
+                res.Resultado = 1;
+                res.Exito = true;
             }
-
-            return SecuenciaFibo (numero -1) + SecuenciaFibo (numero -2);
+            else
+            {
+                res.Resultado = (calcularFibo(numero - 1).Resultado + calcularFibo(numero - 2).Resultado);
+                res.Exito = true;
+            }
+            return res;
         }
     }
 }

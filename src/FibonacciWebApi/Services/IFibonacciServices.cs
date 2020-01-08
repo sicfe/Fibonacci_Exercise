@@ -5,8 +5,14 @@ using System.Threading.Tasks;
 
 namespace FibonacciWebApi.Services
 {
+    public class RespuestaFibo
+    {
+        public Boolean Exito { get; set; }
+        public int Resultado { get; set; }
+        public string Mensage { get; set; }
+    }
     public interface IFibonacciServices
     {
-        int SecuenciaFibo(int numero);
+        RespuestaFibo SecuenciaFibo(int numero);
     }
 }
