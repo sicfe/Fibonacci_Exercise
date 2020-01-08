@@ -20,13 +20,22 @@ namespace FibonacciWebApi.Controllers
             _services = fibonacciServices;
         }
 
-        [HttpGet("{número}")]
-        public ActionResult<int> Get(int número)
+        [HttpGet("{numero}")]
+        public ActionResult<int> Get(int numero)
         {
             try
             {
-                int res = _services.SecuenciaFibo(número);
-                return res;
+                RespuestaFibo res = _services.SecuenciaFibo(numero);
+
+                if (_services.SecuenciaFibo(numero).Exito)
+                {
+                    return res.Resultado;
+                }
+                else
+                {
+                    throw new Exception(res.Mensage);
+                }
+ 
             }
             catch (Exception respuesta)
             {
