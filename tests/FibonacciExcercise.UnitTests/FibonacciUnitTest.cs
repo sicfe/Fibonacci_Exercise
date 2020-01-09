@@ -28,8 +28,11 @@ namespace FibonacciExcercise.UnitTests
             Assert.AreEqual(Constantes.ErrorMenor0, Fibo.SecuenciaFibo(-1).Mensage);
             Assert.AreEqual(false, Fibo.SecuenciaFibo(-5).Exito);
             Assert.AreEqual(Constantes.ErrorMenor0, Fibo.SecuenciaFibo(-5).Mensage);
-            Assert.AreEqual(false, Fibo.SecuenciaFibo(-1).Exito);
-            Assert.AreEqual("El valor no puede ser negativo", Constantes.ErrorMenor0);
+
+            var respuestaFibo = Fibo.SecuenciaFibo(-1);
+            
+            Assert.AreEqual(false, respuestaFibo.Exito);
+            Assert.AreEqual(Constantes.ErrorMenor0, respuestaFibo.Mensage);
         }
 
         [TestMethod]
@@ -37,7 +40,7 @@ namespace FibonacciExcercise.UnitTests
         {
             IFibonacciServices Fibo = new Fibonacci();
             Assert.AreEqual(false, Fibo.SecuenciaFibo(91).Exito);
-            Assert.AreEqual("El valor debe ser menor a 90", Constantes.ErrorMayor90);
+            Assert.AreEqual(Constantes.ErrorMayor90, Fibo.SecuenciaFibo(91).Mensage);
         }
 
         [TestMethod]
