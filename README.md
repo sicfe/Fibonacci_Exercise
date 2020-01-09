@@ -1,6 +1,8 @@
 # Fibonacci_Exercise
 Ejercicio para iniciar en prácticas de programación
 
-El ejercicio recibe una variable de tipo entero y retorna su valor en la secuencia de Fibonacci.
-Si no se recibe un valor entonces da un mensaje de error.
-Si el valor recibido es negativo entonces devuelve -1 a modo de error.
+El ejercicio es una aplicación de tipo ApiRest.
+Se basa en recibir una variable de tipo entero en la URL: https://localhost:44366/api/Fibonacci/{Numero}
+y retorna su valor en la secuencia de Fibonacci.
+
+
