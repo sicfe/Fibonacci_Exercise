@@ -3,6 +3,10 @@ Ejercicio para iniciar en prácticas de programación
 
 # Descripción del proyecto
 
+- El proyecto crea una api rest que resuelve la funcionalidad Calcular Fibonacci para los primero 90 números.
+- Se crean 2 clases para el servicio, Fibonacci e IFibonacci. La primera resuelve el método CalcularFibonacci(int) y realiza la interfaz IFibonacci.
+- Crea la clase FibonacciController para llevar datos desde la url (api/Fibonacci/{int}) hacia el método CalcularFibonacci(int) 
+
 # Herramientas
 - SDK de net core 2.2 [Download](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 - Visual Code [Download](https://code.visualstudio.com/)
