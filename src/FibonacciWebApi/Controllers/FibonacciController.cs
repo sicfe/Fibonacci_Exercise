@@ -7,15 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FibonacciWebApi.Controllers
 {
-    [Route("api/[controller]")]
+   
     [ApiController]
+    [Route("api/[controller]")]
     public class FibonacciController : ControllerBase
     {
-        [HttpGet("{fibo}")]
-        public ActionResult<long> Get(long fibo)
+        private IFibonacci _fibonacciService;
+
+        public FibonacciController(IFibonacci fibonacciService)
         {
-            IFibonacci fibonacci = new Fibonacci();
-            return fibonacci.CalcularFibonacci(fibo);
+            _fibonacciService = fibonacciService;
+        }
+
+
+        [HttpGet("{fibo}")]
+        public ActionResult<long> Get(int fibo)
+        {
+            return _fibonacciService.CalcularFibonacci(fibo);
         }
     }
 }
