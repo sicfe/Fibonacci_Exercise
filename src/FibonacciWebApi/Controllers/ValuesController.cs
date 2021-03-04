@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FibonacciWebApi;
+using FibonacciWebApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FibonacciWebApi.Controllers
@@ -10,6 +12,14 @@ namespace FibonacciWebApi.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private IFibonacciService fibonacciService;
+        public ValuesController(IFibonacciService fibonacciService)
+        {
+            this.fibonacciService = fibonacciService;
+        }
+
+
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -26,8 +36,9 @@ namespace FibonacciWebApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public int Post([FromBody] string value)
         {
+            return fibonacciService.CalcularFibonacci(Convert.ToInt32(value));
         }
 
         // PUT api/values/5
