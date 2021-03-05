@@ -1,10 +1,10 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FibonacciWebApi.Services;
 using System.Data;
 
 
 
-namespace FibonacciExcercise.UnitTests
+namespace PruebaUnitaria.UnitTests
 {
     [TestClass]
     public class SampleTest
@@ -35,5 +35,4 @@ namespace FibonacciExcercise.UnitTests
 
 
 }
-
 
