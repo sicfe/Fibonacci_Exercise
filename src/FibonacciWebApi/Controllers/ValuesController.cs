@@ -36,9 +36,9 @@ namespace FibonacciWebApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public int Post([FromBody] string value)
+        public long Post([FromBody] long value)
         {
-            return fibonacciService.CalcularFibonacci(Convert.ToInt32(value));
+            return fibonacciService.CalcularFibonacci(value);
         }
 
         // PUT api/values/5

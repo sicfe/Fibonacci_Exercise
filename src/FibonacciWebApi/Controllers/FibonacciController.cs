@@ -29,16 +29,16 @@ namespace FibonacciWebApi.Controllers
 
         // GET api/<FibonacciController>/5
         [HttpGet("{id}")]
-        public int Get(int id)
+        public long Get(int id)
         {
             return fibonacciService.CalcularFibonacci(id);
         }
 
         // POST api/<FibonacciController>
         [HttpPost]
-        public int Post([FromBody] int value)
+        public long Post([FromBody] long value)
         {
-           int resultado = fibonacciService.CalcularFibonacci(value);
+           long resultado = fibonacciService.CalcularFibonacci(value);
             return resultado;
         }
 

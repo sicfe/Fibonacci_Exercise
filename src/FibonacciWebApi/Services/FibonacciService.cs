@@ -7,7 +7,7 @@ namespace FibonacciWebApi.Services
 {
     public class FibonacciService : IFibonacciService
     {
-        public int CalcularFibonacci(int numero)
+        /*public int CalcularFibonacci(int numero)
         {
             #region Pasos BASE de recursion
               int fib_0 = 0;
@@ -23,6 +23,27 @@ namespace FibonacciWebApi.Services
             return fib_n;
             #endregion
             //---------------------
+        }
+        */
+        public long CalcularFibonacci(long numero)
+        {
+            long fib_n = 0;
+            if (numero < 2)
+            {
+                return numero;
+            }
+            else
+            {
+                long a = 0;
+                long b = 1;
+                for (long i = 2; i <= numero; i++)
+                {
+                    fib_n = a + b;
+                    a = b;
+                    b = fib_n;
+                }
+            }
+            return fib_n;
         }
     }
 }
