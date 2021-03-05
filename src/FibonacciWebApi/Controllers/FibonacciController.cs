@@ -21,39 +21,44 @@ namespace FibonacciWebApi.Controllers
             this.fibonacci = fibonacci;
         }
 
-        // GET: api/<FibonacciController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+     
 
         // GET api/<FibonacciController>/5
         [HttpGet("{id}")]
-        public int Get(string id)
+        public ActionResult<long> Get(string id)
         {
-            int resp = fibonacci.CalcularFibo(Convert.ToInt32(id));
-            return resp;
+            try
+            {
+                long resp = fibonacci.CalcularFibo(Convert.ToInt32(id));
+                return resp;
+                
+
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+        
+            }
+            
         }
 
         // POST api/<FibonacciController>
         [HttpPost]
-        public int Post([FromBody] int value)
+        public ActionResult<long> Post([FromBody] int value)
         {
-            int resp = fibonacci.CalcularFibo(value);
-            return resp;
+            try
+            {
+                long resp = fibonacci.CalcularFibo(value);
+                return resp;
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+           
         }
 
-        // PUT api/<FibonacciController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<FibonacciController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+       
     }
 }

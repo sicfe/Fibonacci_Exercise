@@ -8,22 +8,22 @@ namespace FibonacciWebApi.Services
     public class FibonacciService : IFibonacciService
     {
         //Override del metodo que vienen de la interface
-        public int CalcularFibo(int num)
+        public long  CalcularFibo(int num)
         {
-            //Paso base para la recursividad
-            int fib_0 = 0;
-            int fib_1 = 1;
-            if (num == 0)
-                return fib_0;
-            if (num == 1)
-                return fib_1;
+            //Casos base para el 0 y el 1
+            if (num < 2)
+                return num;
+            long[] f = new long[num + 1];
+            f[0] = 0;
+            f[1] = 1;
 
+            //Calculo de Fibonacci
+            for (int i = 2; i <= num; i++)
+            {
+                f[i] = f[i - 1] + f[i - 2];
+            }
+            return f[num];
 
-            //Recursivo
-            //Mientras los numeros no sean 0 y 1 se vuelve a llamar el metodo hasta que se cumpla la condición base
-            //Una vez que se cumpla la condición base se utiliza la funcionalidad de fibonacci
-            int fib_n = CalcularFibo(num - 1) + CalcularFibo(num - 2);
-            return fib_n;
         }
     }
 }
