@@ -18,10 +18,10 @@ namespace FibonacciExcercise.UnitTests
         [DataRow(7, 13)]
 
         [TestMethod]
-        public void FibonacciTest(int n, int resEsperado)
+        public void FibonacciTest(int n, long resEsperado)
         {
             IFibonacciService fiboTest = new FibonacciService();
-            int resObtenido = fiboTest.CalcularFibonacci(n);
+            var resObtenido = fiboTest.CalcularFibonacci(n);
             Assert.AreEqual(resEsperado, resObtenido);
         }
     }
