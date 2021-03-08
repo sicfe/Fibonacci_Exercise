@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FibonacciWebApi.Services;
-
+using System.Net.Http;
+using System.Numerics;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace FibonacciWebApi.Controllers
@@ -19,39 +20,48 @@ namespace FibonacciWebApi.Controllers
         public FibonacciController( IFibonacciService fibonacciService)
         {
             this.fibonacciService = fibonacciService;
-        }
-        // GET: api/<FibonacciController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        } 
 
         // GET api/<FibonacciController>/5
         [HttpGet("{id}")]
-        public long Get(int id)
+        public ActionResult <BigInteger> Get(string id)
         {
-            return fibonacciService.CalcularFibonacci(id);
+            if(ValidarNumero(id))
+            {
+               return fibonacciService.CalcularFibonacci(Convert.ToInt32(id));
+            }
+            return BadRequest();
         }
 
         // POST api/<FibonacciController>
         [HttpPost]
-        public long Post([FromBody] long value)
+        public ActionResult<BigInteger> Post([FromBody] string value)
         {
-           long resultado = fibonacciService.CalcularFibonacci(value);
-            return resultado;
+            try
+            {
+                if (ValidarNumero(value))
+                {
+                    BigInteger resultado;
+                    resultado = BigInteger.Parse(value);
+                    resultado = fibonacciService.CalcularFibonacci(Convert.ToInt32(value));
+                    return resultado;
+                }
+                return BadRequest();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+        }
+        private bool ValidarNumero(string n)
+        {
+            BigInteger unNumero;
+            if (BigInteger.TryParse(n, out unNumero) && unNumero >= 0)
+            {
+                return true;
+            }
+            return false;
         }
 
-        // PUT api/<FibonacciController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<FibonacciController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
