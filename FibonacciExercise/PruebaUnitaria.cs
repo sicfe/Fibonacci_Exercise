@@ -24,13 +24,11 @@ namespace PruebaUnitaria.UnitTests
 
         public void FigonacciUnitTest(string n, string resultado)
         {
-            BigInteger conv;
-                BigInteger.TryParse(n, out conv);
-            BigInteger Bresultado;
-                BigInteger.TryParse(resultado, out Bresultado);
+
+            BigInteger.Parse(resultado);
             IFibonacciService prueba = new FibonacciService();
-            BigInteger test1 = prueba.CalcularFibo(conv);
-            Assert.AreEqual(test1, Bresultado);
+            BigInteger test1 = prueba.CalcularFibo(Convert.ToInt32(n));
+            Assert.AreEqual(test1, resultado);
 
 
         }
