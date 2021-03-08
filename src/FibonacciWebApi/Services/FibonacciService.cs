@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using System.Numerics;
 namespace FibonacciWebApi.Services
 {
     public class FibonacciService : IFibonacciService
     {
         //Override del metodo que vienen de la interface
-        public long  CalcularFibo(int num)
+        public BigInteger  CalcularFibo(int num)
         {
+
+            
+
             //Casos base para el 0 y el 1
             if (num < 2)
                 return num;
-            long[] f = new long[num + 1];
+            BigInteger[] f = new BigInteger[(int)(num + 1)];
             f[0] = 0;
             f[1] = 1;
 
@@ -22,7 +25,7 @@ namespace FibonacciWebApi.Services
             {
                 f[i] = f[i - 1] + f[i - 2];
             }
-            return f[num];
+            return f[(int)num];
 
         }
     }

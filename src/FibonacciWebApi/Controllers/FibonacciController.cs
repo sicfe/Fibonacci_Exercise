@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FibonacciWebApi.Services;
+using System.Numerics;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace FibonacciWebApi.Controllers
@@ -21,44 +22,69 @@ namespace FibonacciWebApi.Controllers
             this.fibonacci = fibonacci;
         }
 
-     
+
 
         // GET api/<FibonacciController>/5
         [HttpGet("{id}")]
-        public ActionResult<long> Get(string id)
+        public ActionResult<BigInteger> Get(string id)
         {
             try
             {
-                long resp = fibonacci.CalcularFibo(Convert.ToInt32(id));
-                return resp;
-                
+                if (!validar(id))
+                    return BadRequest();
+                else
+                {
+                    BigInteger result = fibonacci.CalcularFibo(Convert.ToInt32(id));
+                    return result;
+
+                }
+
+
+
 
             }
             catch (Exception)
             {
                 return BadRequest();
-        
+
             }
-            
+
         }
 
         // POST api/<FibonacciController>
         [HttpPost]
-        public ActionResult<long> Post([FromBody] int value)
+        public ActionResult<BigInteger> Post([FromBody] string value)
         {
             try
             {
-                long resp = fibonacci.CalcularFibo(value);
-                return resp;
+                if (!validar(value))
+                    return StatusCode(500);
+                else
+                {
+                    BigInteger result = fibonacci.CalcularFibo(Convert.ToInt32(value));
+                    return result;
+
+                }
+
+
             }
             catch (Exception)
             {
 
-                return BadRequest();
+                return StatusCode(500);
             }
-           
+
         }
 
-       
+        private bool validar(string Pnum)
+        {
+            int aux;
+            if (!int.TryParse(Pnum, out aux) || aux < 0)
+                return false;
+            return true;
+
+        }
+
+
     }
 }
